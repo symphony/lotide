@@ -1,10 +1,13 @@
-const arg = process.args.slice(2);
+// take in arguments and convert them to a single string
+const arg = process.argv.slice(2).join(" ");
+
 const reverseString = function(string) {
+  // console.log(string);
   let reversed = "";
 
-  // todo reverse method
-  for (let i = string.length - 1; i > 0; i--) {
-    reversed += i;
+  // iterate backwards through string, append each character to result
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversed += string.charAt(i);
   }
 
   return reversed;
