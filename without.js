@@ -36,7 +36,7 @@ const assertArraysEqual = function(actual, expected) {
 const assertEqual = function(actual, expected) {
   // Pass to array function if array
   if (Array.isArray(actual) && actual.length === expected.length) {
-    assert(actual, expected);
+    assertArraysEqual(actual, expected);
     return;
   }
   // exit function if both are arrays else continue
@@ -52,9 +52,12 @@ const assertEqual = function(actual, expected) {
 };
 
 // -- Without Function --
-const without = function (source, unwanted) {
-
-}
+const without = function(source, unwanted) {
+  // console.log("source:", source, " unwanted:", unwanted);
+  const result = source.filter(element => !unwanted.includes(element));
+  // console.log("result:", result);
+  return result;
+};
 
 
 // ---=== TESTS === ---
@@ -73,5 +76,5 @@ assertArraysEqual(words, ["hello", "world", "lighthouse"]);
 
 console.log("\n-- Test Without Function --");
 // Without() Tests
-assertEqual(without([1, 2, 3], [1]), [2, 3]) // => pass
-assertEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]) // => pass
+assertEqual(without([1, 2, 3], [1]), [2, 3]); // => pass
+assertEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]); // => pass
