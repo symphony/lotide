@@ -1,5 +1,3 @@
-const { assert } = require("joi");
-
 // Help function - Checks if 2 arrays are identical, returns true or false
 const eqArrays = function(actual, expected) {
   // We can return if arrays aren't the same length
