@@ -52,6 +52,7 @@ const assertEqual = function(actual, expected) {
 };
 
 // -- Without Function --
+// iterates through source array and searches for that element in all of the unwanted array
 const without = function(source, unwanted) {
   // console.log("source:", source, " unwanted:", unwanted);
   const result = source.filter(element => !unwanted.includes(element));
