@@ -76,12 +76,14 @@ const middle = function(array) {
   return [array[center - 1], array[center]];
 };
 
+
+// -= test section =-
 const testArrayOdd = [1,3,3,6,4];
 const testArrayEven = ["does it", "return", "this", "and this", "correctly", "?"];
 // console.log(middle(testArrayOdd));
 // console.log(middle(testArrayEven));
 
-// assert equal tests
+// -= assert equal tests =-
 console.log("\n--Test with assert equal--");
 // edge cases - array too short
 assertEqual(middle([1]), []); // => []
