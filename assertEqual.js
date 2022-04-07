@@ -23,7 +23,7 @@ const eqNonObj = function(elemA, elemB) {
 };
 
 // -Helper function- Checks if 2 objects are identical, returns true or false
-// Does not work if values contain objects
+// Does not work if values contain (non-array) objects
 const eqObjects = function(objectA, objectB) {
   // return if either object is an array, else continue
   if (Array.isArray(objectA) || Array.isArray(objectB)) return false;
@@ -32,7 +32,7 @@ const eqObjects = function(objectA, objectB) {
   // We can return if objects aren't the same length
   if (Object.keys(objectA).length !== Object.keys(objectB).length) return false;
 
-  // now we need to compare every key and value pair between both objects, for this we can use our help function
+  // now we need to compare every key and value pair between both objects, for this we can use our helper function that does the actual comparing
   // if any comparison is false we can return
   for (const key in objectA) {
     // console.log("key:", key, "ValueA:", objectA[key], "ValueB:", objectB[key]);
@@ -46,7 +46,7 @@ const eqObjects = function(objectA, objectB) {
 
 // -- main eq function --
 // Compares if 2 arguments are identical
-// Prints to console - does not return a value
+// Prints result to console - does not return a value
 const assertEqual = function(actual, expected) {
   // Imports util library so we can print objects properly
   const inspect = require('util').inspect;
