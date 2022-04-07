@@ -58,7 +58,13 @@ const assertEqual = function(actual, expected) {
 // Lists all the indexes in which each letter of a given string appears
 const letterPositions = function(sentence) {
   const results = {};
-
+  for (let i = 0; i < sentence.length; i++) {
+    const letter = sentence[i];
+    // first we need to create an empty array for each unique letter
+    if (!results[letter]) results[letter] = [];
+    // now we can push since our array exists
+    results[letter].push(i);
+  }
   return results;
 };
 
@@ -66,4 +72,7 @@ const letterPositions = function(sentence) {
 
 const testString = "hello";
 const positionReport = letterPositions(testString);
-assertEqual(testString[0], [0]) // letter h only found at index 0
+assertEqual(positionReport.h, [0]) // letter h only found at index 0
+assertEqual(positionReport.e, [1]) // e
+assertEqual(positionReport.l, [2, 3]) // l found twice
+assertEqual(positionReport.o, [4]) // o
