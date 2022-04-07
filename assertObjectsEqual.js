@@ -52,7 +52,7 @@ const assertObjectsEqual = function(actual, expected) {
   const inspect = require('util').inspect;
   // Create console messages
   const failedMsg = `🛑 Assertion Failed 🛑 > ${inspect(actual)} !== ${inspect(expected)}`;
-  const passedMsg = `✅ Assertion Passed ✅ > ${actual} === ${expected}`;
+  const passedMsg = `✅ Assertion Passed ✅ > ${inspect(actual)} === ${inspect(expected)}`;
 
   // First do a non-object comparison
   let isEqual = eqNonObj(actual, expected); // send to sub function
@@ -73,10 +73,10 @@ const assertObjectsEqual = function(actual, expected) {
 // -- tests obs w primitives --
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-assertObjectsEqual(eqObjects(ab, ba), true); // => true
+assertObjectsEqual(ab, ba); // => true
 
 const abc = { a: "1", b: "2", c: "3" };
-assertObjectsEqual(eqObjects(ab, abc), false); // => false
+assertObjectsEqual(ab, abc); // => false
 
 // -- tests objs w arrays --
 const cd = { c: "1", d: ["2", 3] };
