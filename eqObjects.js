@@ -18,16 +18,20 @@ const eqArrays = function(arrayA, arrayB) {
 };
 
 // -Helper function- Checks if 2 objects are identical, returns true or false
-// Does not work if values contain arrays or objects
+// Does not work if values contain objects
 const eqTrueObjects = function(objectA, objectB) {
-  console.log("I am here");
-  // we need to save each key and value to arrays then send to array subfunction
-  const pairsA = Object.keys(objectA).concat(Object.values(objectA));
-  const pairsB = Object.keys(objectB).concat(Object.values(objectB));
-  console.log("A entries:", pairsA, "B entries:", pairsB);
-
-  // send to sub function. return result directly
-  return eqArrays(pairsA, pairsB);
+  // console.log("I am here");
+  // we need to compare every key and value from first object to second
+  for (const key in objectA) {
+    if (objectA[key] !== objectB[key]) return false;
+  }
+  // we ALSO need to compare object 2 keys to object 1 since one could contain more keys than the other
+  for (const key in objectB) {
+    // console.log("key:", key, "valueA:", objectA[key], "valueB:", objectB[key]);
+    if (objectA[key] !== objectB[key]) return false;
+  }
+  // all checks passed
+  return true;
 };
 
 // -- main eq function --
