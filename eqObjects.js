@@ -1,36 +1,46 @@
 // --== Assert equal section ==--
 
+// -Helper function- Checks if 2 (non object) elements are identical, returns true or false
+// does not work if nested elements are arrays or objects
+const eqNonObj = function(elemA, elemB) {
+  // first check if non arrays and matching, else continue
+  if (elemA === elemB) return true;
 
+  // Array tests below
+  // We can return if both aren't arrays
+  if (!Array.isArray(elemA) || !Array.isArray(elemB)) return false;
 
-// -Helper function- Checks if 2 arrays are identical, returns true or false
-// does not work if elements are arrays or objects
-const eqArrays = function(arrayA, arrayB) {
   // We can return if arrays aren't the same length
-  if (arrayA.length !== arrayB.length) return false;
+  if (elemA.length !== elemB.length) return false;
 
-  // Check each index, return if mismatch
-  for (let i = 0; i < arrayA.length; i++) {
-    if (arrayA[i] !== arrayB[i]) return false;
+  // Compare indexes, return if mismatch
+  for (let i = 0; i < elemA.length; i++) {
+    if (elemA[i] !== elemB[i]) return false;
   }
 
-  // All checks passed
+  // All elements match
   return true;
 };
 
 // -Helper function- Checks if 2 objects are identical, returns true or false
 // Does not work if values contain objects
-const eqTrueObjects = function(objectA, objectB) {
+const eqObjects = function(objectA, objectB) {
+  // return if either object is an array, else continue
+  if (Array.isArray(objectA) || Array.isArray(objectB)) return false;
   // console.log("I am here");
-  // we need to compare every key and value from first object to second
+
+  // We can return if objects aren't the same length
+  if (Object.keys(objectA).length !== Object.keys(objectB).length) return false;
+
+  // now we need to compare every key and value pair between both objects, for this we can use our help function
+  // if any comparison is false we can return
   for (const key in objectA) {
-    if (objectA[key] !== objectB[key]) return false;
+    // console.log("key:", key, "ValueA:", objectA[key], "ValueB:", objectB[key]);
+    // console.log("matching?:", eqNonObj(objectA[key], objectB[key]));
+    if (!eqNonObj(objectA[key], objectB[key])) return false;
   }
-  // we ALSO need to compare object 2 keys to object 1 since one could contain more keys than the other
-  for (const key in objectB) {
-    // console.log("key:", key, "valueA:", objectA[key], "valueB:", objectB[key]);
-    if (objectA[key] !== objectB[key]) return false;
-  }
-  // all checks passed
+
+  // all pairs identical
   return true;
 };
 
@@ -38,35 +48,37 @@ const eqTrueObjects = function(objectA, objectB) {
 // Compares if 2 arguments are identical
 // Prints to console - does not return a value
 const assertEqual = function(actual, expected) {
-  // Standard comparison (ie. non arrays or objects)
-  let isEqual = actual === expected;
-
-  // Exception to check if arrays
-  const areArrays = Array.isArray(actual) && Array.isArray(expected);
-  if (areArrays) isEqual = eqArrays(actual, expected); // send to sub function
-
-  // Exception to check if objects (but not arrays)
-  const areObjs = !areArrays && typeof(actual) === "object" && typeof(expected) === "object";
-  if (areObjs) isEqual = eqTrueObjects(actual, expected); // send to sub function
-
-  // The order in which we check above is important. Arrays always override normal values and objects need to override arrays (since objects can be arrays.)
-
-  // If neither object or array, original comparison will be used
-
   // Create console messages
   const failedMsg = `🛑 Assertion Failed 🛑 > ${actual} !== ${expected}`;
   const passedMsg = `✅ Assertion Passed ✅ > ${actual} === ${expected}`;
 
-  // test and return appropriate response
-  if (!isEqual) console.log(failedMsg);
-  else console.log(passedMsg);
+  // First do a non-object comparison
+  let isEqual = eqNonObj(actual, expected); // send to sub function
+
+  // Exception to check if objects (but not arrays)
+  const areObjs = typeof(actual) === "object" && typeof(expected) === "object";
+  if (!isEqual && areObjs) isEqual = eqObjects(actual, expected); // send to sub function
+
+
+  // print appropriate response
+  console.log(isEqual ? passedMsg : failedMsg);
 };
 
 // --== End assert equal section ==--
 
+
+// -- tests obs w primitives --
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-assertEqual(eqTrueObjects(ab, ba), true); // => true
+assertEqual(eqObjects(ab, ba), true); // => true
 
 const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqTrueObjects(ab, abc), false); // => false
+assertEqual(eqObjects(ab, abc), false); // => false
+
+// -- tests objs w arrays --
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+assertEqual(eqObjects(cd, dc), true); // => true
+
+const cd2 = { c: "1", d: ["2", 3, 4] };
+assertEqual(eqObjects(cd, cd2), false); // => false
