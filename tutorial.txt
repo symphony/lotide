@@ -1,0 +1,2 @@
+vim stinks (a memoir)
+end
