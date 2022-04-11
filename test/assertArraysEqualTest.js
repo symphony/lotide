@@ -1,4 +1,3 @@
-const assertEqual = require('../assertEqual').assertEqual;
 const assertArraysEqual = require('../eq-standalones/assertArraysEqual');
 
 // Test arrays eq
