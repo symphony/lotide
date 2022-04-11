@@ -72,7 +72,7 @@ const letterPositions = function(sentence) {
 
 const testString = "hello";
 const positionReport = letterPositions(testString);
-assertEqual(positionReport.h, [0]) // letter h only found at index 0
-assertEqual(positionReport.e, [1]) // e
-assertEqual(positionReport.l, [2, 3]) // l found twice
-assertEqual(positionReport.o, [4]) // o
+assertEqual(positionReport.h, [0]); // letter h only found at index 0
+assertEqual(positionReport.e, [1]); // e
+assertEqual(positionReport.l, [2, 3]); // l found twice
+assertEqual(positionReport.o, [4]); // o

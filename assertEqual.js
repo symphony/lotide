@@ -72,4 +72,4 @@ const assertEqual = function(actual, expected) {
 // -- TEST CODE --
 // moved to ../test/assertEqualTest.js
 
-module.exports = {eqNonObj, eqObjects, assertEqual}
+module.exports = {eqNonObj, eqObjects, assertEqual};
