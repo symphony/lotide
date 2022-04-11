@@ -1,4 +1,5 @@
 // --== Assert equal section ==--
+// Global assert eq file. Works with arrays and objects.
 
 // -Helper function- Checks if 2 (non object) elements are identical, returns true or false
 // does not work if nested elements are arrays or objects
