@@ -1,18 +1,18 @@
 {
   "name": "lotide",
   "version": "1.0.0",
-  "description": "New repo to house working Lotide project files",
-  "main": "assertEqual.js",
+  "description": "A mini clone of the Lodash library.\n**This library was published for learning purposes only. It is not intended for use in production-grade software.",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
-    "start": "node main.js"
+    "start": "lib/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/symphony/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "symphony@github.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/symphony/lotide/issues"
