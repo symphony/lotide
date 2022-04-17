@@ -1,4 +1,4 @@
-const eqArrays = require('./eqArrays');
+const { eqArrays } = require('./eqArrays');
 
 const assertArraysEqual = function(actual, expected) {
   // Create console messages
@@ -9,4 +9,4 @@ const assertArraysEqual = function(actual, expected) {
   console.log(eqArrays(actual, expected) ? passedMsg : failedMsg);
 };
 
-module.exports = assertArraysEqual;
+module.exports = { assertArraysEqual };

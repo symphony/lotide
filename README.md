@@ -26,7 +26,10 @@ This project was created and published by me as part of my learnings at Lighthou
 
 The following functions are currently implemented:
 
+* `assertEqual(...)`: Compares if two items are identical or not
 * `head(...)`: Returns the first element of an array
 * `tail(...)`: Omits the first element of an array and returns the rest
 * `middle(...)`: Returns the middle (or middle two) elements of an array
 * `flatten(...)`: Flattens an array of any depth to a single level
+* `countOnly(...)`: Takes a list and list of items to count and returns a report with the totals
+* `map(...)`: Takes an array and applies a callback function to each element, then returns results in a new array

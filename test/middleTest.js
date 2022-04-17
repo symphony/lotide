@@ -1,5 +1,4 @@
-const assertEqual = require("../assertEqual").assertEqual;
-const middle = require("../middle");
+const { assertEqual, middle } = require("../lib/index");
 
 // -= test section =-
 const testArrayOdd = [1,3,3,6,4];

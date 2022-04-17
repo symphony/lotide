@@ -1,5 +1,4 @@
-const assertEqual = require('../assertEqual').assertEqual;
-const eqArrays = require("../eq-standalones/eqArrays");
+const { assertEqual, eqArrays } = require('../lib/index');
 
 // Test arrays assert
 console.log("✅: ", eqArrays([1, 2, 3], [1, 2, 3]));

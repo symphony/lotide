@@ -15,23 +15,4 @@ const map = function(array, callback) {
   return results;
 };
 
-// -- Callback examples --
-const singWord = word => `*ahem* [singing voice] ${word} 🎵`;
-
-const getCurrentAndNextItem = (element, i, array) => {
-  return `${element} > ${array[i + 1] || "(end of list)"}`;
-};
-
-const reverseString = (string) => {
-  let reversed = "";
-  for (let i = string.length - 1; i >= 0; i--) {
-    reversed += string[i];
-  }
-  return reversed;
-};
-
-const createObjectWithNameAndIndex = (element, i) => {
-  return {name: element, index: i};
-};
-
 module.exports = { map };

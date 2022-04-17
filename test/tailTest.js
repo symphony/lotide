@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
-const tail = require("../tail");
+const { tail } = require("../tail");
 
-describe("#head", () => {
+describe("tail()", () => {
   it("should return not mutate the original array", () => {
     const words = ["Yo Yo", "Lighthouse", "Labs"];
     tail(words);

@@ -1,5 +1,3 @@
-// --== Assert equal section ==--
-
 // -Helper function- Checks if 2 (non object) elements are identical, returns true or false
 // does not work if nested elements are arrays or objects
 const eqNonObj = function(elemA, elemB) {
@@ -65,9 +63,6 @@ const assertObjectsEqual = function(actual, expected) {
   // print appropriate response
   console.log(isEqual ? passedMsg : failedMsg);
 };
-
-// --== End assert equal section ==--
-
 
 // -- TEST CODE --
 // -- tests obs w primitives --

@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const head = require("../head.js");
+const { assertEqual, head } = require("../lib/index");
 
 describe("#head", () => {
   it("returns 1 for [1, 2, 3]", () => {
@@ -10,8 +10,8 @@ describe("#head", () => {
   });
 });
 
-// Additional
-// head([5,6,7]), 5);
-// head(["Hello", "Lighthouse", "Labs"]), "Hello");
-// head([15]), 15);
-// head([]), undefined);
+// Additional tests
+assertEqual(head([5,6,7]), 5);
+assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
+assertEqual(head([15]), 15);
+assertEqual(head([]), undefined);

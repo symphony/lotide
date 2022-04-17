@@ -1,4 +1,4 @@
-const assertArraysEqual = require('../eq-standalones/assertArraysEqual');
+const { assertArraysEqual } = require('../lib/index');
 
 // Test arrays eq
 assertArraysEqual([1, 2, 3], [1, 2, 3]); // true
