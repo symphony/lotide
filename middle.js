@@ -1,6 +1,7 @@
-// --== main middle function ==--
-// Returns either a single or pair of elements found in the middle of a given array
-const middle = function(array) {
+/**
+ * Returns either a single or pair of elements found in the middle of a given array
+ */
+const middle = array => {
   // requires array - return error if incorrect entry
   if (!Array.isArray(array)) return "Please provide a single array";
   // check if array is required length
@@ -20,4 +21,4 @@ const middle = function(array) {
   return [array[center - 1], array[center]];
 };
 
-module.exports = middle;
+module.exports = { middle };

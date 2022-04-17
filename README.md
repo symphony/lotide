@@ -29,3 +29,4 @@ The following functions are currently implemented:
 * `head(...)`: Returns the first element of an array
 * `tail(...)`: Omits the first element of an array and returns the rest
 * `middle(...)`: Returns the middle (or middle two) elements of an array
+* `flatten(...)`: Flattens an array of any depth to a single level

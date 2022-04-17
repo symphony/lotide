@@ -1,6 +1,2 @@
-const tail = function(array) {
-  const headlessArray = array.slice(1);
-  return headlessArray;
-};
-
-module.exports = tail;
+const tail = array => array.slice(1);
+module.exports = { tail };
