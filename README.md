@@ -33,3 +33,5 @@ The following functions are currently implemented:
 * `flatten(...)`: Flattens an array of any depth to a single level
 * `countOnly(...)`: Takes a list and list of items to count and returns a report with the totals
 * `map(...)`: Takes an array and applies a callback function to each element, then returns results in a new array
+* `findKey(...)`: Checks each value in an object for the provided condition, returns key name when found
+* `findKeyByValue(...)`: Searches for given value in an object and returns first key name that matches
