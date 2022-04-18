@@ -48,12 +48,12 @@ const eqObjects = function(objectA, objectB) {
 // -- main eq function --
 // Compares if 2 arguments are identical
 // Prints result to console - does not return a value
-const assertEqual = function(actual, expected) {
+const assertEqual = function(actual, expected, note) {
   // Imports util library so we can print objects properly
   const inspect = require('util').inspect;
   // Create console messages
-  const failedMsg = `🛑 Assertion Failed 🛑 > ${inspect(actual)} !== ${inspect(expected)}`;
-  const passedMsg = `✅ Assertion Passed ✅ > ${inspect(actual)} === ${inspect(expected)}`;
+  const passedMsg = `👽 Assertion Passed 🐸 > ${inspect(actual)} === ${inspect(expected)}${note ? ' (' + note + ')' : ''}`;
+  const failedMsg = `🦐 Assertion Failed 🍅 > ${inspect(actual)} !== ${inspect(expected)}${note ? ' (' + note + ')' : ''}`;
 
   // First do a non-object comparison
   let isEqual = eqNonObj(actual, expected); // send to sub function
