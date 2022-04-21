@@ -35,3 +35,8 @@ The following functions are currently implemented:
 * `map(...)`: Takes an array and applies a callback function to each element, then returns results in a new array
 * `findKey(...)`: Checks each value in an object for the provided condition, returns key name when found
 * `findKeyByValue(...)`: Searches for given value in an object and returns first key name that matches
+
+---
+![NPM Page](screenshots/lotide1.png?raw=true)
+
+![Mod Method](screenshots/lotide2.png?raw=true "Mod Method")
